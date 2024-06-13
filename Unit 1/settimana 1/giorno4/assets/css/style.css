@@ -1,6 +1,6 @@
 * {
     font-family: "Poppins", sans-serif;
-    box-sizing: ;
+    
     
 }
 
@@ -30,9 +30,7 @@ header {
 
 .listnavbar {
     list-style-type: none;
-    padding: 0;
-
-}
+   }
 
 .listnavbar a:hover {
     color: red;
