@@ -1,0 +1,39 @@
+#logosimply {
+    text-align: center;
+}
+
+#frase {
+    text-align: center;
+    background-color: #FDFBF1;
+    padding: 15px;
+    border-top-color: #FFD977;
+    border-top-width: 0.1em;
+    border-top-style: solid; 
+    color: #004D4C;
+}
+#titolo {
+    text-align: center;
+}
+#intro {
+    text-align: center;
+}
+#videoyt {
+    text-align: center;
+}
+#imgresource {
+    text-align: center;
+    color: #999999;
+}
+#featured {
+    padding-left: 270px;
+    border-left: #FFD977;
+    border-left-style: solid;
+    border-left-width: 0.1em;
+}
+.featured {
+    margin: 0;
+    color: #B5460F;
+}
+#primolink {
+    color: #0F7777;
+}
