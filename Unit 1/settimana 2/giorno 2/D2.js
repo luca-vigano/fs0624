@@ -88,7 +88,7 @@ console.log(checkOut);
 console.log("****** ESERCIZIO 6 ******")
 
 let discount = 0.2;
-totalshoppigcart = totalshoppigcart * (1- discount)
+totalshoppigcart = totalshoppigcart * (1 - discount)
 
 if (totalshoppigcart > 50) {
   checkOut = totalshoppigcart;
@@ -110,20 +110,20 @@ let num1 = 15;
 let num2 = 15;
 let num3 = 15;
 
-if(num1 > num2 && num1 > num3)
+if (num1 > num2 && num1 > num3)
 
 
-/* ESERCIZIO 8
-  Crea un algoritmo per verificare che un valore fornito sia un numero oppure no (suggerimento: cerca su un motore di ricerca "typeof").
-*/
+  /* ESERCIZIO 8
+    Crea un algoritmo per verificare che un valore fornito sia un numero oppure no (suggerimento: cerca su un motore di ricerca "typeof").
+  */
 
-/* SCRIVI QUI LA TUA RISPOSTA */
+  /* SCRIVI QUI LA TUA RISPOSTA */
 
-console.log("****** ESERCIZIO 8 ******")
+  console.log("****** ESERCIZIO 8 ******")
 
 let integer = 15
 
-if(typeof(integer) === "number") {
+if (typeof (integer) === "number") {
   console.log("è un numero");
 } else {
   console.log("non è un numero")
@@ -205,16 +205,16 @@ console.log("****** ESERCIZIO 14 ******")
 
 const myArr = [];
 
-arr[0] =1;
-arr[1] =2;
-arr[2] =3;
-arr[3] =4;
-arr[4] =5;
-arr[5] =6;
-arr[6] =7;
-arr[7] =8;
-arr[8] =9;
-arr[9] =10;
+arr[0] = 1;
+arr[1] = 2;
+arr[2] = 3;
+arr[3] = 4;
+arr[4] = 5;
+arr[5] = 6;
+arr[6] = 7;
+arr[7] = 8;
+arr[8] = 9;
+arr[9] = 10;
 // è preferibile usare il metodo Push()
 
 /* ESERCIZIO 15
