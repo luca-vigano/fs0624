@@ -5,48 +5,68 @@
 
 console.log("***** ESERCIZIO 1 *****");
 
-function concatString(str1, str2) {
-  const part1 = str1.slice(0, 2);
-  const part2 = str2.slice(-3);
-  const newConcatString = part1 + part2;
-  const upperString = newConcatString.toUpperCase();
-  console.log(upperString)
+function newString(string1, string2) {
+  let cut1 = string1.slice(0, 2);
+  let cut2 = string2.slice(-3)
+  let concatString = cut1.concat(" ", cut2).toUpperCase();
 
+  return concatString
 }
 
-concatString("hello", "word")
-
+console.log(newString("ciao", "a tutti"))
 /* ESERCIZIO 2 (for)
   Scrivi una funzione che torni un array di 10 elementi; ognuno di essi deve essere un valore random compreso tra 0 e 100 (incluso).
 */
 
 console.log("***** ESERCIZIO 2 *****");
 
-function generateRandomArray() {
-  const randomArray = [];
-  
+function randomArrai() {
+  let numberArray = []
   for (let i = 0; i < 10; i++) {
-      const randomValue = Math.floor(Math.random() * 101);
-      randomArray.push(randomValue);
+    let randomNumber = Math.floor((Math.random() * 100) + 1);
+    numberArray.push(randomNumber);
   }
-  
-  return randomArray;
+  return numberArray
 }
 
-
-const randomArray = generateRandomArray();
-console.log(randomArray);
-
-
-
+console.log(randomArrai())
 /* ESERCIZIO 3 (filter)
   Scrivi una funzione per ricavare solamente i valori PARI da un array composto da soli valori numerici
 */
+console.log("***** ESERCIZIO 3 *****");
 
+function EvenNumber(number) {
+  let evenNumber = [];
+  for (let i = 0; i < number.length; i++) {
+    if (number[i] % 2 === 0) {
+      evenNumber.push(number[i])
+    }
+
+  }
+  console.log(number)
+  return evenNumber
+
+}
+
+console.log(EvenNumber(randomArrai()))
 /* ESERCIZIO 4 (forEach)
   Scrivi una funzione per sommare i numeri contenuti in un array
 */
 
+console.log("***** ESERCIZIO 4 *****");
+
+function CheckNumb(arr) {
+  console.log(arr)
+  let totNum = 0;
+  // for (let i = 0; i < arr.length; i++) {
+  //   totNum = totNum + arr[i];
+    
+  // }
+  arr.forEach((bicchiere) => totNum= totNum + bicchiere)
+  return totNum
+}
+
+console.log(CheckNumb(randomArrai()))
 /* ESERCIZIO 5 (reduce)
   Scrivi una funzione per sommare i numeri contenuti in un array
 */
