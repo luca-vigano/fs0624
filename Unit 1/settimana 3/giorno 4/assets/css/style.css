@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.container {
+    max-width: 992px;
+    margin: 0 auto;
+}
+.number {
+    display: inline-block;
+    width: 10%;
+    height: 50px;
+    border: 1px solid black;
+    text-align: center;
+}
