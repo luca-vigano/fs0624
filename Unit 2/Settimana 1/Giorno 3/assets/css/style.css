@@ -62,9 +62,10 @@ section img {
     width:70%;
 }
 
-.price {
+.description {
     display: flex;
-    flex-grow: 2;
+    width: 100%;
+    justify-content: space-evenly;
 }
 
 .addCart {
@@ -72,5 +73,13 @@ section img {
     align-items: center;
     margin-bottom: 20px;
     width: 70%;
-
 }
+ .price {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 0;
+ }
+ .bio {
+    margin-bottom: 0;
+ }
