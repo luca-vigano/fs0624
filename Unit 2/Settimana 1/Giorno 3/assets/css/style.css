@@ -43,6 +43,7 @@ section {
     background-color: #FDF7DF;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 section img {
@@ -63,14 +64,13 @@ section img {
 
 .price {
     display: flex;
-}
-
-.price div {
     flex-grow: 2;
 }
 
 .addCart {
     display:flex;
-    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 70%;
 
 }
