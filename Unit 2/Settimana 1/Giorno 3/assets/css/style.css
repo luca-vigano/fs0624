@@ -14,15 +14,15 @@ nav {
 }
 
 nav div {
-    padding: 20px 10px;
+    padding: 10px 10px;
     text-align: center;
     border: 0;
-    width: 6em;
+    width: 35%;
     background-color: #FBDE7A;
     color: #67210D;
-    border-radius: 50%;
+    border-radius: 30px;
     font-weight: bold;
-   
+    margin-bottom: 10px;
 }
 
 .shopDiv {
