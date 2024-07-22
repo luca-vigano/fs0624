@@ -50,12 +50,33 @@ button.addEventListener("click", function (e){
     
     const pet = new Pet (petNameValue, ownerNameValue, speciesValue, breedValue)
 
+
+
+
+
     petList.push(pet)
 
-   const newListElement =  document.createElement("li")
-    newListElement.innerText= "animale"
+    for (let i =0; i<petList.length; i++){
+        const newListElement =  document.createElement("li")
+         newListElement.innerText= 
+         petList[i].petName +
+         " " +
+         petList[i].ownerName +
+         " " +
+         petList[i].species +
+         " " +
+         petList[i].breed 
 
-    ul.appendChild(newListElement)
+         newListElement.classList.add("list-group-item")
+
+        
+    if (petList.length >= 2 && pet.ownerName === petList[petList.length-2].ownerName)
+        newListElement.innerText = newListElement.innerText + " il proprietario è lo stesso del precedente"
+
+         ul.appendChild(newListElement)
+    }
+document.querySelector("form").reset()
+
 })
 
 
