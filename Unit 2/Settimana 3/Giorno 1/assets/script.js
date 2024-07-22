@@ -36,6 +36,7 @@ class Pet {
     }
 } 
 
+const petList = []
 
 const button = document.querySelector("button")
 button.addEventListener("click", function (e){
@@ -47,7 +48,9 @@ button.addEventListener("click", function (e){
     const breedValue = document.getElementById("breed").value
     const ul = document.querySelector("ul")
     
-    const elment = new Pet (petNameValue, ownerNameValue, speciesValue, breedValue)
+    const pet = new Pet (petNameValue, ownerNameValue, speciesValue, breedValue)
+
+    petList.push(pet)
 
    const newListElement =  document.createElement("li")
     newListElement.innerText= "animale"
