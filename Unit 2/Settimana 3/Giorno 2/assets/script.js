@@ -108,9 +108,11 @@ if (savedRubrica) {
 
 
 document.getElementById("remove").addEventListener("click", function (e) {
-    if (savedRubrica) {
-        const popContactAr = JSON.parse(savedRubrica)
+    const newRubrica=localStorage.getItem("rubrica")
+    if (newRubrica) {
+        const popContactAr = JSON.parse(newRubrica)
         popContactAr.pop()
+        localStorage.setItem("rubrica", JSON.stringify(popContactAr))
         createListFromArray(popContactAr)
     }
 });
