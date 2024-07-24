@@ -21,7 +21,7 @@ const generateCArd = function (arrayOfBook) {
     const pickrow = document.getElementById("row")
     arrayOfBook.forEach(book => {
         const newCol = document.createElement("div")
-        newCol.classList.add("col-6", "col-mid-3", "col-lg-2",)
+        newCol.classList.add("col-6", "col-md-3", "col-lg-2",)
         const newDiv = document.createElement("div")
         newDiv.classList.add("card", "bg-dark", "text-light", "border", "border-light")
         const newImg = document.createElement("img")
@@ -38,7 +38,7 @@ const generateCArd = function (arrayOfBook) {
         const secondP = document.createElement("p")
         secondP.classList.add("card-text")
         secondP.innerText = book.category
-        
+
         pickrow.appendChild(newCol)
         newCol.appendChild(newDiv)
         newDiv.appendChild(newImg)
@@ -52,9 +52,9 @@ const generateCArd = function (arrayOfBook) {
         deleteButton.classList.add("btn", "btn-sm", "btn-danger")
         deleteButton.innerText = "DELETE"
         deleteButton.addEventListener("click", function (e) {
-            e.target.closest(".col").classList.add("d-none")
-            newBodyDiv.appendChild(deleteButton)
+            e.target.closest(".col-6").classList.add("d-none")
         })
+        newBodyDiv.appendChild(deleteButton)
     });
 
 }
