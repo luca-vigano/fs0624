@@ -15,11 +15,14 @@ const getAlbum = function (value) {
         .then((albumFoto) => {
             console.log(albumFoto)
 
-            albumFoto.forEach(foto => {
+            const arrayFoto = albumFoto.photos
+            console.log("FOTO", arrayFoto)
+
+            arrayFoto.forEach((foto) => {
                 const newFotoCol = `
             <div class="col-md-4">
                 <div class="card mb-4 shadow-sm">
-                    <img src="${foto.url}" class="bd-placeholder-img card-img-top" />
+                    <img src="${foto.src.medium}" class="bd-placeholder-img card-img-top" />
                     <div class="card-body">
                         <h5 class="card-title">Lorem Ipsum</h5>
                         <p class="card-text">
@@ -33,16 +36,16 @@ const getAlbum = function (value) {
                                     View
                                 </button>
                                 <button type="button" class="btn btn-sm btn-outline-secondary">
-                                    Edit
+                                    Hide
                                 </button>
                             </div>
-                         <small class="text-muted">9 mins</small>
+                         <small class="text-muted">${foto.id}</small>
                         </div>
                     </div>
                 </div>
             </div>
             `
-                const fotoCard =document.getElementById("foto-card")
+                const fotoCard = document.getElementById("foto-card")
                 fotoCard.innerHTML = newFotoCol
             });
         })
