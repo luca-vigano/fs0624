@@ -46,7 +46,7 @@ const getAlbum = function (value) {
             </div>
             `
                 const fotoCard = document.getElementById("foto-card")
-                fotoCard.innerHTML = newFotoCol
+                fotoCard.innerHTML += newFotoCol
             });
         })
         .catch((error) => {
