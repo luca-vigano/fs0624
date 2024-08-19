@@ -1,5 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
+import ButtonComponent from './components/ButtonComponent';
+import ImageComponent from './components/ImageComponent';
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
         >
           Learn React
         </a>
+        <ButtonComponent buttonText="sono un bottone!"/>
+        <ImageComponent src="https://zampol.it/wp-content/uploads/2023/02/Caratteristiche_del_gatto-scaled.jpg" alt="immagine di un gatto" />
       </header>
     </div>
   );
