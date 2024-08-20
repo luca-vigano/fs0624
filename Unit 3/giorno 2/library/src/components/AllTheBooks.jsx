@@ -7,9 +7,9 @@ const AllTheBook = function () {
             <Row>
                 {fantasybook.map((book) => {
                     return (
-                        <Col sm={12} md={6} lg={4}>
-                            <Card >
-                                <Card.Img variant="top" src={book.img} />
+                        <Col sm={12} md={6} lg={4} className="g-4">
+                            <Card className="h-100">
+                                <Card.Img className="h-100" variant="top" src={book.img} />
                                 <Card.Body>
                                     <Card.Title>{book.title}</Card.Title>
                                     <Card.Text>
