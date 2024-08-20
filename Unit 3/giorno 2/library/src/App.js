@@ -2,6 +2,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import MyNav from './components/MyNav';
 import MyFooter from './components/MyFooter';
+import Welcome from './components/Welcome';
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
         <MyNav />
       </header>
       <main>
-
+        <Welcome />
       </main>
       <footer>
         <MyFooter />
