@@ -5,9 +5,9 @@ const AllTheBook = function () {
     return (
         <Container>
             <Row>
-                {fantasybook.map((book) => {
+                {fantasybook.map((book, i) => {
                     return (
-                        <Col sm={12} md={6} lg={4} className="g-4">
+                        <Col sm={12} md={6} lg={4} className="g-4" key={i}>
                             <Card className="h-100">
                                 <Card.Img className="h-100" variant="top" src={book.img} />
                                 <Card.Body>
