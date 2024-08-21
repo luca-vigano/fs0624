@@ -11,7 +11,7 @@ state = {
     render(){
         return (
             <Col sm={12} md={6} lg={4} className="g-4" >
-                <Card className={`h-100 ${this.state.selected ? "border border-danger" : ""}`}>
+                <Card className={`h-100 ${this.state.selected ? "border border-2 border-danger" : ""}`}>
                     <Card.Img className="h-100" variant="top" src={this.props.book.img} 
                     onClick={(e) =>{
                         this.setState({
