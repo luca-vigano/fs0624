@@ -1,22 +1,41 @@
 import { Component } from "react"
 import fantasybook from "../books/fantasy.json"
 import SingleBook from "./SingleBook"
-import { Container, Row } from "react-bootstrap"
+import { Container, Row, Col } from "react-bootstrap"
+import CommentArea from "./CommentArea"
 
 
 
 
 class BookList extends Component {
+
+    state = {
+        selectedBook: 0
+    }
+
+    setId= (bookId) => {
+        this.setState({
+            ...this.state,
+            selectedBook:bookId
+        })
+    }
     render() {
         return (
             <Container>
                 <Row>
-                    {fantasybook.map((libro) => {
-                        return (
-                            <SingleBook book={libro} key={libro.asin} />
-                        )
-                    })
-                    }
+                    <Col>
+                        <Row>
+                            {fantasybook.map((libro) => {
+                                return (
+                                    <SingleBook book={libro} onSelectedBook={(bookId)=>this.setId(bookId)} key={libro.asin} />
+                                )
+                            })
+                            }
+                        </Row>
+                    </Col>
+                    <Col>
+                    <CommentArea selectetBook={this.state.selectedBook}/>
+                    </Col>
                 </Row>
             </Container>
 
