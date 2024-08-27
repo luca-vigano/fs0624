@@ -15,8 +15,8 @@ function App() {
         <MyNav />
       </header>
       <main>
-        <BookList />
         <Welcome />
+        <BookList />
         {/* <AllTheBook /> */}
       </main>
       <footer>

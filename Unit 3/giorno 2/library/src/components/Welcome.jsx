@@ -1,9 +1,9 @@
 import Alert from 'react-bootstrap/Alert';
 
-function Welcome() {
+const Welcome = () => {
   return (
     <>
-        <Alert className='text-center' variant="danger">
+        <Alert className='text-center' variant="primary">
           ciao sono un sottotitolo
         </Alert>
     </>

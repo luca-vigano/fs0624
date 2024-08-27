@@ -5,13 +5,19 @@ import AddComment from "./AddComment";
 
 const CommentArea = (props) => {
 
+  
+
     const[recensioni, setRecensioni]= useState([])
 
     // state = {
     //     recensioni: []
     // }
+
+    
      const commentFetch = () => {
-        fetch("https://striveschool-api.herokuapp.com/api/comments/"+ props.bookID, {
+
+      console.log(props.selectedBook)
+        fetch("https://striveschool-api.herokuapp.com/api/comments/"+ props.selectedBook, {
             headers: {
                 "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmNjN2E0M2ZkZWUzZDAwMTU5YmRlZjYiLCJpYXQiOjE3MjQ2NzY2NzUsImV4cCI6MTcyNTg4NjI3NX0.thO-bjFuB4ASlBFLjZi-vUJzgkYsWgVfli-_PUQNli0"
             }
@@ -41,6 +47,7 @@ const CommentArea = (props) => {
 
 
 useEffect(() => {
+  console.log("cazzo")
     commentFetch()
 },[props.selectedBook])
 
@@ -65,7 +72,7 @@ useEffect(() => {
                     )
                 })}
           </ListGroup>
-          <AddComment bookID={props.bookID} />
+          <AddComment bookID={props.selectedBook} />
             </>
         )
 }

@@ -15,10 +15,8 @@ const BookList = () => {
     const [selectedBook, setSelectedBook] = useState(0)
 
     const setId = (bookId) => {
-
-        setSelectedBook({
-            selectedBook: bookId
-        })
+            console.log(bookId)
+        setSelectedBook( bookId )
 
         // this.setState({
         //     ...this.state,
@@ -39,7 +37,7 @@ const BookList = () => {
                     </Row>
                 </Col>
                 <Col>
-                    <CommentArea selectetBook={selectedBook} />
+                    <CommentArea selectedBook={selectedBook} />
                     {/* <CommentArea selectetBook={this.state.selectedBook} /> */}
                 </Col>
             </Row>

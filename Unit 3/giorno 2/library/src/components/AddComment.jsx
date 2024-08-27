@@ -30,7 +30,9 @@ const AddComment = (props) => {
 
                             //     }
                             // })
-                            setCommento({ comment: e.target.value })
+                            setCommento({ 
+                                ...commento,
+                                comment: e.target.value })
                         }}
                         value={commento.comment}
                     />
@@ -44,7 +46,9 @@ const AddComment = (props) => {
         </>
     )
 
-    const NewComment = () => {
+    function NewComment () {
+
+        console.log(commento)
         fetch("https://striveschool-api.herokuapp.com/api/comments/", {
             headers: {
                 "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmNjN2E0M2ZkZWUzZDAwMTU5YmRlZjYiLCJpYXQiOjE3MjQ2NzY2NzUsImV4cCI6MTcyNTg4NjI3NX0.thO-bjFuB4ASlBFLjZi-vUJzgkYsWgVfli-_PUQNli0",
