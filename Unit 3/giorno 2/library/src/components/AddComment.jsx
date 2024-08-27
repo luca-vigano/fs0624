@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Form, Button } from "react-bootstrap";
 
 const AddComment = (props) => {
@@ -15,7 +15,10 @@ const AddComment = (props) => {
         elementId: props.bookID,
         rate: 5,
     })
-
+     useEffect(()=>{
+        setCommento({...commento, elementId:props.bookID})
+     // eslint-disable-next-line react-hooks/exhaustive-deps
+     }, [props.bookID])
     return (
         <>
             <Form>
@@ -41,7 +44,7 @@ const AddComment = (props) => {
                     onClick={(e) => {
                         NewComment()
                     }}
-                >Primary</Button>{' '}
+                >INVIO</Button>{' '}
             </Form>
         </>
     )

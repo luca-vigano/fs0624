@@ -47,8 +47,9 @@ const CommentArea = (props) => {
 
 
 useEffect(() => {
-  console.log("cazzo")
+  console.log("test")
     commentFetch()
+// eslint-disable-next-line react-hooks/exhaustive-deps
 },[props.selectedBook])
 
 
