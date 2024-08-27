@@ -1,15 +1,17 @@
-import { Component } from "react";
+import { useEffect, useState } from "react";
 import ListGroup from 'react-bootstrap/ListGroup';
 import AddComment from "./AddComment";
 
 
-class CommentArea extends Component {
+const CommentArea = (props) => {
 
-    state = {
-        recensioni: []
-    }
-    commentFetch = () => {
-        fetch("https://striveschool-api.herokuapp.com/api/comments/"+ this.props.bookID, {
+    const[recensioni, setRecensioni]= useState([])
+
+    // state = {
+    //     recensioni: []
+    // }
+     const commentFetch = () => {
+        fetch("https://striveschool-api.herokuapp.com/api/comments/"+ props.bookID, {
             headers: {
                 "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmNjN2E0M2ZkZWUzZDAwMTU5YmRlZjYiLCJpYXQiOjE3MjQ2NzY2NzUsImV4cCI6MTcyNTg4NjI3NX0.thO-bjFuB4ASlBFLjZi-vUJzgkYsWgVfli-_PUQNli0"
             }
@@ -26,9 +28,10 @@ class CommentArea extends Component {
           })
           .then((arrayOfRecensioni) => {
             console.log('RECENSIONI RECUPERATE DAL SERVER', arrayOfRecensioni)
-                this.setState ({
-                    recensioni:arrayOfRecensioni
-                })
+                // this.setState ({
+                //     recensioni:arrayOfRecensioni
+                // })
+                setRecensioni(arrayOfRecensioni)
           })
           .catch((err) => {
             // finale cattivo :( problema di rete?
@@ -36,31 +39,35 @@ class CommentArea extends Component {
           })
     }
 
-componentDidMount = () => {
-    this.commentFetch()
-}
 
-componentDidUpdate = (prevProps) => {
-    if (prevProps.selectedBook !== this.props.selectedBook){
-        this.commentFetch()
-    }
+useEffect(() => {
+    commentFetch()
+},[props.selectedBook])
 
-}
 
-    render() {
+// componentDidMount = () => {
+//     this.commentFetch()
+// }
+
+// componentDidUpdate = (prevProps) => {
+//     if (prevProps.selectedBook !== props.selectedBook){
+//         this.commentFetch()
+//     }
+
+// }
+
         return (
             <>
             <ListGroup>
-                {this.state.recensioni.map((rec) =>{
+                {recensioni.map((rec) =>{
                     return(
                         <ListGroup.Item>{rec.comment}</ListGroup.Item>
                     )
                 })}
           </ListGroup>
-          <AddComment bookID={this.props.bookID} />
+          <AddComment bookID={props.bookID} />
             </>
         )
-    }
 }
 
 export default CommentArea
