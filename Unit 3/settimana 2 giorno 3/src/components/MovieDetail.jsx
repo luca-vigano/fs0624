@@ -34,12 +34,12 @@ const MovieDetail = () => {
       });
   };
   return (
-    <Container fluid className="bg-dark m-0">
+    <Container fluid className="bg-dark m-0 d-flex justify-content-around">
       <Row>
-        <Col>
+        <Col xs={12} md={6} className="my-2 text-center">
           <Image src={film.Poster} rounded />
         </Col>
-        <Col className="mt-5">
+        <Col xs={12} md={6} className="my-5">
           <ListGroup>
             <ListGroup.Item className="bg-dark text-light">
               {film.Title}

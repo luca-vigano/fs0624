@@ -11,9 +11,9 @@ const NetflixNavbar = function () {
       style={{ backgroundColor: "#221f1f" }}
     >
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">
+        <Link to="/" className="navbar-brand" href="#">
           <img src={Logo} style={{ width: 100, height: 55 }} />
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
