@@ -1,9 +1,14 @@
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
 import { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { Col, Container, Row } from "react-bootstrap";
+import Image from "react-bootstrap/Image";
+import ListGroup from "react-bootstrap/ListGroup";
 
 const MovieDetail = () => {
-  const [film, setFilm] = useState([]);
+  const params = useParams();
+  const navigate = useNavigate();
+
+  const [film, setFilm] = useState({});
   const [isError, setIsError] = useState(false);
 
   useEffect(() => {
@@ -11,7 +16,7 @@ const MovieDetail = () => {
   }, []);
 
   const fetchMovies = () => {
-    fetch("https://www.omdbapi.com/?apikey=5ace13d8&s=")
+    fetch("https://www.omdbapi.com/?apikey=5ace13d8&i=" + params.movieId)
       .then((response) => {
         if (response.ok) {
           return response.json();
@@ -20,8 +25,8 @@ const MovieDetail = () => {
         }
       })
       .then((filmsearch) => {
-        setFilm(filmsearch.Search);
-        console.log(filmsearch.Search);
+        setFilm(filmsearch);
+        console.log(filmsearch);
       })
       .catch((err) => {
         console.log("ERRORE RECUPERO DATI", err);
@@ -29,17 +34,41 @@ const MovieDetail = () => {
       });
   };
   return (
-    <Card>
-      <Card.Img variant="top" src="holder.js/100px180" />
-      <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
-      </Card.Body>
-    </Card>
+    <Container fluid className="bg-dark m-0">
+      <Row>
+        <Col>
+          <Image src={film.Poster} rounded />
+        </Col>
+        <Col className="mt-5">
+          <ListGroup>
+            <ListGroup.Item className="bg-dark text-light">
+              {film.Title}
+            </ListGroup.Item>
+            <ListGroup.Item className="bg-dark text-light">
+              {film.Year}
+            </ListGroup.Item>
+            <ListGroup.Item className="bg-dark text-light">
+              {film.Runtime}
+            </ListGroup.Item>
+            <ListGroup.Item className="bg-dark text-light">
+              {film.Genre}
+            </ListGroup.Item>
+            <ListGroup.Item className="bg-dark text-light">
+              {film.Director}
+            </ListGroup.Item>
+            <ListGroup.Item className="bg-dark text-light">
+              {film.Writer}
+            </ListGroup.Item>
+            <ListGroup.Item className="bg-dark text-light">
+              {film.Actors}
+            </ListGroup.Item>
+            <ListGroup.Item className="bg-dark text-light">
+              {film.Awards}
+            </ListGroup.Item>
+          </ListGroup>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 
