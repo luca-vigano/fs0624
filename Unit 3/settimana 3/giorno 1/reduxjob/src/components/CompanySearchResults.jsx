@@ -41,7 +41,6 @@ const CompanySearchResults = () => {
           ))}
         </Col>
         <Button
-          className="d-flex align-items-center"
           onClick={() => {
             dispatch({
               type: "ADD_TO_FAVORITES",

@@ -1,0 +1,28 @@
+import { Col, Row, Button, Container } from "react-bootstrap";
+import { useSelector, useDispatch } from "react-redux";
+
+const MyFavorites = () => {
+  const ArrOfFavorites = useSelector((store) => store.favorite.companies);
+
+  return (
+    <Container>
+      <Row>
+        <Col sm={12} className="text-center mt-5 text-success">
+          <h3>MY FAVORITE</h3>
+        </Col>
+        <Col sm={12}>
+          <ul style={{ listStyle: "none" }}>
+            {ArrOfFavorites.map((company, i) => (
+              <li key={i} className="my-4">
+                <Button>DELETE</Button>
+                <h4>{company}</h4>
+              </li>
+            ))}
+          </ul>
+        </Col>
+      </Row>
+    </Container>
+  );
+};
+
+export default MyFavorites;
