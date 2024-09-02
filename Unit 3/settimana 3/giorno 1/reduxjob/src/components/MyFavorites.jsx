@@ -5,6 +5,9 @@ const MyFavorites = () => {
   const ArrOfFavorites = useSelector((store) => {
     return store.favorite.companies;
   });
+
+  const dispatch = useDispatch();
+
   console.log(" ciao", ArrOfFavorites);
   return (
     <Container>
@@ -16,7 +19,17 @@ const MyFavorites = () => {
           <ul style={{ listStyle: "none" }}>
             {ArrOfFavorites.map((company, i) => (
               <li key={i} className="my-4">
-                <Button>DELETE</Button>
+                <Button
+                  variant="danger"
+                  onClick={() => {
+                    dispatch({
+                      type: "REMOVE_FROM_FAVORITES",
+                      payload: i,
+                    });
+                  }}
+                >
+                  DELETE
+                </Button>
                 <h4>{company}</h4>
               </li>
             ))}

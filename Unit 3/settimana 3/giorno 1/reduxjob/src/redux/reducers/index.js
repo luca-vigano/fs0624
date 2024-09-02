@@ -17,6 +17,16 @@ const mainReducer = (state = initialState, action) => {
     default: {
       return state;
     }
+    case "REMOVE_FROM_FAVORITES":
+      return {
+        ...state,
+        favorite: {
+          ...state.favorite,
+          companies: state.favorite.companies.filter(
+            (companies, i) => i !== action.paiload
+          ),
+        },
+      };
   }
 };
 
