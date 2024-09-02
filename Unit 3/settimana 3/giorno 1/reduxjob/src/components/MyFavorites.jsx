@@ -18,7 +18,7 @@ const MyFavorites = () => {
         <Col sm={12}>
           <ul style={{ listStyle: "none" }}>
             {ArrOfFavorites.map((company, i) => (
-              <li key={i} className="my-4">
+              <li key={i} className="my-4 d-flex border border-2">
                 <Button
                   variant="danger"
                   onClick={() => {
@@ -30,7 +30,7 @@ const MyFavorites = () => {
                 >
                   DELETE
                 </Button>
-                <h4>{company}</h4>
+                <p>{company}</p>
               </li>
             ))}
           </ul>
