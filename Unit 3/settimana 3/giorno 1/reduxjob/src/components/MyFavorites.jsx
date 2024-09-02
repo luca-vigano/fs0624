@@ -2,8 +2,10 @@ import { Col, Row, Button, Container } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 
 const MyFavorites = () => {
-  const ArrOfFavorites = useSelector((store) => store.favorite.companies);
-
+  const ArrOfFavorites = useSelector((store) => {
+    return store.favorite.companies;
+  });
+  console.log(" ciao", ArrOfFavorites);
   return (
     <Container>
       <Row>

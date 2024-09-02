@@ -3,11 +3,13 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import Job from "./Job";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const CompanySearchResults = () => {
   const [jobs, setJobs] = useState([]);
   const params = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const baseEndpoint =
     "https://strive-benchmark.herokuapp.com/api/jobs?company=";
@@ -41,6 +43,8 @@ const CompanySearchResults = () => {
           ))}
         </Col>
         <Button
+          variant="success"
+          className="mb-4"
           onClick={() => {
             dispatch({
               type: "ADD_TO_FAVORITES",
@@ -49,6 +53,13 @@ const CompanySearchResults = () => {
           }}
         >
           ADD {params.company.toUpperCase()} TO FAVORITES
+        </Button>
+        <Button
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+          TORNA ALLA HOME
         </Button>
       </Row>
     </Container>
