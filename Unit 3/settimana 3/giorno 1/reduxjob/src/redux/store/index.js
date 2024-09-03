@@ -13,4 +13,4 @@ const store = configureStore({
   reducer: BigReducer,
 });
 
-export default BigReducer;
+export default store;
