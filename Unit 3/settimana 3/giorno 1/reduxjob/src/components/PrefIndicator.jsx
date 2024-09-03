@@ -8,7 +8,7 @@ import { setUserNameAction } from "../redux/actions";
 const PrefIndicator = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [name, setName] = useState();
+  const [name, setName] = useState("");
   const arrayOfFAvorites = useSelector((store) => {
     return store.favorite.companies;
   });
