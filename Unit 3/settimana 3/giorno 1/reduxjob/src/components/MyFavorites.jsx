@@ -1,7 +1,7 @@
 import { Col, Row, Button, Container } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { removeFromFavorites } from "../redux/actions/index";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const MyFavorites = () => {
   const ArrOfFavorites = useSelector((store) => {
