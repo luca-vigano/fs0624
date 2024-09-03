@@ -4,7 +4,7 @@ const initialState = {
   name: "",
 };
 
-const mainReducer = (state = initialState, action) => {
+const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_USER_NAME:
       return {
@@ -18,4 +18,4 @@ const mainReducer = (state = initialState, action) => {
   }
 };
 
-export default mainReducer;
+export default userReducer;
