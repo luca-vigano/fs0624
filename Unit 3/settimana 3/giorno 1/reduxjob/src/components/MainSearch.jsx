@@ -36,9 +36,6 @@ const MainSearch = () => {
         <Col xs={10} className="mx-auto my-3">
           <h1 className="display-1">Remote Jobs Search</h1>
         </Col>
-        <Col xs={10} className="mx-auto my-3">
-          <PrefIndicator />
-        </Col>
         <Col xs={10} className="mx-auto">
           <Form onSubmit={handleSubmit}>
             <Form.Control

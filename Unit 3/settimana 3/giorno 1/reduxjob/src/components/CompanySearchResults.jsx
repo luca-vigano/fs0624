@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col, Button, Alert } from "react-bootstrap";
 import Job from "./Job";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -50,7 +50,6 @@ const CompanySearchResults = () => {
         <Col>
           <PrefIndicator />
         </Col>
-
         {username ? (
           <Button
             variant="success"
@@ -62,7 +61,9 @@ const CompanySearchResults = () => {
             ADD {params.company.toUpperCase()} TO FAVORITES
           </Button>
         ) : (
-          <p>Fai il login per aggiungere ai preferiti</p>
+          <Alert className="text-center">
+            FAI IL LOGIN PER AGGIUNGERE AI TUOI PREFERITI!
+          </Alert>
         )}
 
         <Button
