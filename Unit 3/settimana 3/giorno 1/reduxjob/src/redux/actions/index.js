@@ -1,6 +1,7 @@
 export const ADD_TO_FAVORITES = "ADD_TO_FAVORITES";
 export const REMOVE_FROM_FAVORITES = "REMOVE_FROM_FAVORITES";
 export const SET_USER_NAME = "SET_USER_NAME";
+export const GET_RESULTS = "GET_RESULTS";
 
 export const addToFavoriteAction = (company) => {
   return {
