@@ -5,6 +5,10 @@ const initialState = {
   favorite: {
     companies: [],
   },
+
+  user: {
+    name: "",
+  },
 };
 
 const mainReducer = (state = initialState, action) => {
@@ -28,6 +32,14 @@ const mainReducer = (state = initialState, action) => {
           companies: state.favorite.companies.filter(
             (companies, i) => i !== action.payload
           ),
+        },
+      };
+    case "SET_USERNAME":
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          name: action.payload,
         },
       };
   }
