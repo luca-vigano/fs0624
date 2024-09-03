@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import Job from "./Job";
 import { useParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import PrefIndicator from "./PrefIndicator";
 import { addToFavoriteAction } from "../redux/actions/index";
@@ -12,6 +12,9 @@ const CompanySearchResults = () => {
   const params = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const username = useSelector((store) => {
+    return store.user.name;
+  });
 
   const baseEndpoint =
     "https://strive-benchmark.herokuapp.com/api/jobs?company=";
@@ -47,15 +50,21 @@ const CompanySearchResults = () => {
         <Col>
           <PrefIndicator />
         </Col>
-        <Button
-          variant="success"
-          className="mb-4"
-          onClick={() => {
-            dispatch(addToFavoriteAction(params.company));
-          }}
-        >
-          ADD {params.company.toUpperCase()} TO FAVORITES
-        </Button>
+
+        {username ? (
+          <Button
+            variant="success"
+            className="mb-4"
+            onClick={() => {
+              dispatch(addToFavoriteAction(params.company));
+            }}
+          >
+            ADD {params.company.toUpperCase()} TO FAVORITES
+          </Button>
+        ) : (
+          <p>Fai il login per aggiungere ai preferiti</p>
+        )}
+
         <Button
           onClick={() => {
             navigate("/");
