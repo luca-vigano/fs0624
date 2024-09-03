@@ -1,7 +1,7 @@
 import { Col, Row, Button, Container } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
 import { removeFromFavorites } from "../redux/actions/index";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const MyFavorites = () => {
   const ArrOfFavorites = useSelector((store) => {
@@ -9,6 +9,7 @@ const MyFavorites = () => {
   });
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   console.log(" ciao", ArrOfFavorites);
   return (
@@ -18,9 +19,16 @@ const MyFavorites = () => {
           <h3>MY FAVORITE</h3>
         </Col>
         <Col sm={12} className="text-center text-success">
-          <Link to="/" className="text-decoration-none">
-            <p>GO HOME</p>
-          </Link>
+          <Button
+            onClick={() => {
+              dispatch({
+                type: "CLEAR_ARRAY",
+              });
+              navigate("/");
+            }}
+          >
+            TORNA ALLA HOME
+          </Button>
         </Col>
         <Col sm={12}>
           <ul style={{ listStyle: "none" }}>

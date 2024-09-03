@@ -1,4 +1,4 @@
-import { GET_RESULTS } from "../actions";
+import { GET_COMPANIES } from "../actions";
 
 const initialState = {
   searchResults: [],
@@ -6,10 +6,16 @@ const initialState = {
 
 const searchResultsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_RESULTS:
+    case GET_COMPANIES:
       return {
         ...state,
-        searchResults: action.payload, // cioè l'array di libri
+        searchResults: action.payload, // cioè l'array di compagnie
+      };
+
+    case "CLEAR_ARRAY":
+      return {
+        ...state,
+        searchResults: [],
       };
 
     default:

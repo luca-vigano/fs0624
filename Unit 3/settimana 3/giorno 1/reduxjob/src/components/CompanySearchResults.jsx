@@ -68,6 +68,9 @@ const CompanySearchResults = () => {
 
         <Button
           onClick={() => {
+            dispatch({
+              type: "CLEAR_ARRAY",
+            });
             navigate("/");
           }}
         >

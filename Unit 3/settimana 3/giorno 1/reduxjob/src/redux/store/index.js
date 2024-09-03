@@ -6,7 +6,7 @@ import searchResultsReducer from "../reducers/searchResults";
 const BigReducer = combineReducers({
   favorite: favoriteReducer,
   user: userReducer,
-  searchResults: searchResultsReducer,
+  results: searchResultsReducer,
 });
 
 const store = configureStore({

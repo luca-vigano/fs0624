@@ -12,29 +12,35 @@ const PrefIndicator = () => {
   const arrayOfFAvorites = useSelector((store) => {
     return store.favorite.companies;
   });
-
+  const globalName = useSelector((store) => store.user.name);
   return (
     <div className="d-flex justify-content-end my-4">
-      <Form
-        onSubmit={(e) => {
-          e.preventDefault();
-          dispatch(setUserNameAction(name));
-        }}
-      >
-        <Form.Control
-          type="text"
-          placeholder="fai il login"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-      </Form>
-      <Button
-        onClick={() => navigate("/favorites")}
-        className="d-flex align-items-center"
-      >
-        <span className="ms-2">My Favorites</span>
-        <span className="ms-2">{arrayOfFAvorites.length}</span>
-      </Button>
+      {globalName.length === 0 ? (
+        <Form
+          onSubmit={(e) => {
+            e.preventDefault();
+            dispatch(setUserNameAction(name));
+          }}
+        >
+          <Form.Control
+            type="text"
+            placeholder="fai il login"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </Form>
+      ) : (
+        <Button
+          onClick={(e) => {
+            e.preventDefault();
+            navigate("/favorites");
+          }}
+          className="d-flex align-items-center"
+        >
+          <span className="ms-2">My Favorites</span>
+          <span className="ms-2">{arrayOfFAvorites.length}</span>
+        </Button>
+      )}
     </div>
   );
 };

@@ -1,33 +1,40 @@
 import { useState } from "react";
 import { Container, Row, Col, Form } from "react-bootstrap";
 import Job from "./Job";
+import { getResultsAction } from "../redux/actions";
+import { useDispatch, useSelector } from "react-redux";
 import PrefIndicator from "./PrefIndicator";
 
 const MainSearch = () => {
   const [query, setQuery] = useState("");
-  const [jobs, setJobs] = useState([]);
-
-  const baseEndpoint =
-    "https://strive-benchmark.herokuapp.com/api/jobs?search=";
+  // const [jobs, setJobs] = useState([]);
+  const jobs = useSelector((store) => store.results.searchResults);
+  const globalName = useSelector((store) => store.user.name);
+  const dispatch = useDispatch();
+  console.log("job", jobs);
+  // const baseEndpoint =
+  //   "https://strive-benchmark.herokuapp.com/api/jobs?search=";
 
   const handleChange = (e) => {
     setQuery(e.target.value);
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(getResultsAction(query));
+    console.log("query", query);
 
-    try {
-      const response = await fetch(baseEndpoint + query + "&limit=20");
-      if (response.ok) {
-        const { data } = await response.json();
-        setJobs(data);
-      } else {
-        alert("Error fetching results");
-      }
-    } catch (error) {
-      console.log(error);
-    }
+    // try {
+    //   const response = await fetch(baseEndpoint + query + "&limit=20");
+    //   if (response.ok) {
+    //     const { data } = await response.json();
+    //     setJobs(data);
+    //   } else {
+    //     alert("Error fetching results");
+    //   }
+    // } catch (error) {
+    //   console.log(error);
+    // }
   };
 
   return (
@@ -36,6 +43,13 @@ const MainSearch = () => {
         <Col xs={10} className="mx-auto my-3">
           <h1 className="display-1">Remote Jobs Search</h1>
         </Col>
+        {globalName.length !== 0 && (
+          <Row>
+            <Col>
+              <PrefIndicator />
+            </Col>
+          </Row>
+        )}
         <Col xs={10} className="mx-auto">
           <Form onSubmit={handleSubmit}>
             <Form.Control
