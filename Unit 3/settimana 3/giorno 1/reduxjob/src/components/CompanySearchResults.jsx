@@ -4,6 +4,8 @@ import Job from "./Job";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import PrefIndicator from "./PrefIndicator";
+import { addToFavoriteAction } from "../redux/actions/index";
 
 const CompanySearchResults = () => {
   const [jobs, setJobs] = useState([]);
@@ -36,20 +38,20 @@ const CompanySearchResults = () => {
   return (
     <Container>
       <Row>
-        <Col className="my-3">
+        <Col xs={12} className="my-3">
           <h1 className="display-4">Job posting for: {params.company}</h1>
           {jobs.map((jobData) => (
             <Job key={jobData._id} data={jobData} />
           ))}
         </Col>
+        <Col>
+          <PrefIndicator />
+        </Col>
         <Button
           variant="success"
           className="mb-4"
           onClick={() => {
-            dispatch({
-              type: "ADD_TO_FAVORITES",
-              payload: params.company,
-            });
+            dispatch(addToFavoriteAction(params.company));
           }}
         >
           ADD {params.company.toUpperCase()} TO FAVORITES
