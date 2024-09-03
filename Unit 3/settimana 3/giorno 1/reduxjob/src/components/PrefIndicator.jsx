@@ -1,5 +1,5 @@
 import { Button, Form } from "react-bootstrap";
-import { useState } from "react-router-dom";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
@@ -10,7 +10,6 @@ const PrefIndicator = () => {
   const dispatch = useDispatch();
   const [name, setName] = useState();
   const arrayOfFAvorites = useSelector((store) => {
-    // store è TUTTO lo stato di Redux
     return store.favorite.companies;
   });
 
