@@ -1,5 +1,18 @@
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
+
+        System.out.println("esercizio 1");
+        int resMoliplica = moltiplica(5, 3);
+        System.out.println("risultato moltiplicazione: " + resMoliplica);
+
+        String resConcatena = concatena("pippo", 35);
+        System.out.println(resConcatena);
+
+        String[] arr = {"pippo", "pluto", "paperino", "topolino", "ziopaperone"};
+        String[] newArr = inserisciInArray(arr, "minnie");
+        System.out.println(Arrays.toString(newArr));
     }
 
     public static int moltiplica(int x, int y) {
