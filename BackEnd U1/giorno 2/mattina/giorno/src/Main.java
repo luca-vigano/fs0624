@@ -25,18 +25,16 @@ public class Main {
             String[] caratteri = input.split("");
             System.out.println(String.join(",", caratteri));
         } while (!input.equals(":q"));
-        scanner.close();
         System.out.println("Exit");
 
 
 
         System.out.println("ESERCIZIO 5");
 
-        Scanner scan = new Scanner(System.in);
         System.out.println("Inserire un numero seguito dal tasto Invio");
-        int inputNumber = scan.nextInt();
+        int inputNumber = scanner.nextInt();
         countDown(inputNumber);
-        scan.close();
+        scanner.close();
 
 
     }
