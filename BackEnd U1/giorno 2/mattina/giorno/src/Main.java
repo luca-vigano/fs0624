@@ -1,13 +1,18 @@
 public class Main {
     public static void main(String[] args) {
 
+
+        System.out.println("ESERCIZIO 1");
         System.out.println(pariDispari("ciao!"));
 
-
+        System.out.println("ESERCIZIO 2");
         System.out.println(isBisestile(2020));
         System.out.println(isBisestile(1900));
-        System.out.println(isBisestile(2000));
-        System.out.println(isBisestile(2021));
+
+        System.out.println("ESERCIZIO 3");
+        System.out.println(str(0));
+
+        System.out.println("ESERCIZIO 4");
 
     }
 
@@ -36,4 +41,18 @@ public class Main {
         }
     }
 
+    public static String str (int num) {
+        switch (num){
+            case 0:
+                return "Zero";
+            case 1:
+                return "Uno";
+            case 2:
+                return "Due";
+            case 3:
+                return "Tre";
+            default:
+                return "inserire un numero tra 0 e 3";
+        }
+    }
 }
