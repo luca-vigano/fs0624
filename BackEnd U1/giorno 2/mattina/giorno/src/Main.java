@@ -1,5 +1,8 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
+
 
 
         System.out.println("ESERCIZIO 1");
@@ -12,7 +15,29 @@ public class Main {
         System.out.println("ESERCIZIO 3");
         System.out.println(str(0));
 
-        System.out.println("ESERCIZIO 4");
+
+       System.out.println("ESERCIZIO 4");
+        String input = "";
+        Scanner scanner = new Scanner(System.in);
+        do {
+            System.out.println("Scrivi una stringa");
+            input = scanner.nextLine();
+            String[] caratteri = input.split("");
+            System.out.println(String.join(",", caratteri));
+        } while (!input.equals(":q"));
+        scanner.close();
+        System.out.println("Exit");
+
+
+
+        System.out.println("ESERCIZIO 5");
+
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Inserire un numero seguito dal tasto Invio");
+        int inputNumber = scan.nextInt();
+        countDown(inputNumber);
+        scan.close();
+
 
     }
 
@@ -55,4 +80,15 @@ public class Main {
                 return "inserire un numero tra 0 e 3";
         }
     }
+
+
+    public static void countDown (int num) {
+        System.out.println("Conto alla rovescia da " + num + " a 0");
+
+        for (int i = num; i >= 0; i--) {
+            System.out.println(i);
+        }
+
+    }
+
 }
