@@ -1,10 +1,13 @@
+import esercizio1.Rettangolo;
+import esercizio2.Sim;
+
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println("*********** Stampa rettangolo ***********");
+        System.out.println(" Stampa rettangolo ");
         Rettangolo r1 = new Rettangolo(20, 5.7);
         stampaRettangolo(r1);
-        System.out.println("*********** Stampa due rettangoli ***********");
+        System.out.println("Stampa due rettangoli");
         Rettangolo r2 = new Rettangolo(12, 40.2);
         stampaDueRettangoli(r1, r2);
     }
@@ -16,10 +19,10 @@ public class Main {
 
     public static void stampaDueRettangoli(Rettangolo rettangolo1, Rettangolo rettangolo2) {
 
-        System.out.println("Rettangolo 1: ");
+        System.out.println("esercizio1.Rettangolo 1: ");
         stampaRettangolo(rettangolo1);
 
-        System.out.println("Rettangolo 2: ");
+        System.out.println("esercizio1.Rettangolo 2: ");
         stampaRettangolo(rettangolo2);
 
         double sommaAree = rettangolo1.area() + rettangolo2.area();
@@ -32,5 +35,10 @@ public class Main {
         System.out.println(sommaAree);
 
     }
+
+
+    Sim s1 = new Sim("333-33333333");
+
+
 
 }

@@ -1,3 +1,5 @@
+package esercizio1;
+
 public class Rettangolo {
 
     private double altezza;
@@ -8,11 +10,9 @@ public class Rettangolo {
         this.larghezza = larghezza;
     }
 
-
     public double area() {
         return altezza * larghezza;
     }
-
     public double perimetro() {
         return (altezza + larghezza) * 2;
     }
