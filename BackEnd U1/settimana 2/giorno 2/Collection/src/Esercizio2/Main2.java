@@ -2,7 +2,7 @@ package Esercizio2;
 
 import java.util.ArrayList;
 import static Esercizio2.Funzione2.lista;
-import static Esercizio2.Funzione3.funzione3;
+import static Esercizio2.Funzione3.stampaElementi;
 public class Main2 {
     public static void main(String[] args) {
 
@@ -22,12 +22,19 @@ public class Main2 {
         listaOriginale.add(4);
         listaOriginale.add(5);
 
-        boolean b =true;
-        ArrayList<Integer> pariDispari = funzione3(listaOriginale, b);
         ArrayList<Integer> listaRisultato = lista(listaOriginale);
-
         System.out.println("Lista con l'ordine inverso: " + listaRisultato);
-        System.out.println("Lista con l'ordine inverso: " + pariDispari);
+
+        ArrayList<String> lista = new ArrayList<>();
+        lista.add("A");
+        lista.add("B");
+        lista.add("C");
+        lista.add("D");
+        lista.add("E");
+        lista.add("F");
+
+        stampaElementi(lista, true);
+        stampaElementi(lista, false);
     }
 
 
