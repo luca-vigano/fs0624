@@ -26,7 +26,6 @@ public class Main1 {
         System.out.println("Numero parole inserite: " + stringList.size());
         if(!stringDuplicateList.isEmpty()) {
         System.out.println("Parole duplicate: " + stringDuplicateList);
-
         }
     }
 }
