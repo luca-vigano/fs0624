@@ -1,3 +1,6 @@
+import jdk.jfr.Category;
+
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,16 +20,56 @@ public class Main {
         Customer c9 =new Customer(9, "Martina",2);
         Customer c10 =new Customer(10, "Giulia",5);
 
-        Product p1 = new Product(111,"Rtx4090", "Pc", 2000.00);
-        Product p2 = new Product(222,"Rtx4080", "Pc", 1800.00);
-        Product p3 = new Product(333,"Rtx4070", "Pc", 1500.00);
+        Product p1 = new Product(111,"Ciuccio", "Baby", 2000.00);
+        Product p2 = new Product(222,"Pannolini", "Baby", 1800.00);
+        Product p3 = new Product(333,"Culla", "Baby", 1500.00);
         Product p4 = new Product(444,"Topolino vol1", "Books", 2.00);
         Product p5 = new Product(555,"Scuola di cucina", "Books", 100.10);
         Product p6 = new Product(666,"Enciclopedia", "Books", 223.50);
-        Product p7 = new Product(777,"Iphone 14", "Phone", 700.00);
-        Product p8 = new Product(888,"Iphone 15", "Phone", 1000.00);
-        Product p9 = new Product(999,"Iphone 16", "Phone", 1450.00);
-        Product p10 = new Product(010,"Airpods", "Music", 200.00);
+        Product p7 = new Product(777,"Scarpe", "Boys", 700.00);
+        Product p8 = new Product(888,"Felpa", "Boys", 1000.00);
+        Product p9 = new Product(999,"T-shirt", "Boys", 1450.00);
+        Product p10 = new Product(010,"Cappello", "Boys", 200.00);
+
+
+        List<Product> order1 = new ArrayList<>();
+        order1.add(p3);
+        order1.add(p5);
+        order1.add(p7);
+
+        List<Product> order2 = new ArrayList<>();
+        order2.add(p1);
+        order2.add(p4);
+        order2.add(p8);
+
+        List<Product> order3 = new ArrayList<>();
+        order3.add(p3);
+        order3.add(p5);
+        order3.add(p9);
+
+        List<Product> order4 = new ArrayList<>();
+        order4.add(p2);
+        order4.add(p6);
+        order4.add(p10);
+
+
+
+        Order o1 = new Order(167323,"Close", LocalDate.now().minusMonths(1),LocalDate.now().minusDays(13),order1,c10);
+        Order o2 = new Order(53764,"Close", LocalDate.now().minusMonths(2),LocalDate.now().minusDays(8),order2,c10);
+        Order o3 = new Order(67673,"Close", LocalDate.now().minusMonths(2),LocalDate.now().minusDays(20),order3,c10);
+        Order o4 = new Order(12632,"Close", LocalDate.now().minusMonths(3),LocalDate.now().minusMonths(1),order4,c10);
+        Order o5 = new Order(38672,"Close", LocalDate.now().minusMonths(4),LocalDate.now().minusMonths(2),order3,c10);
+        Order o6 = new Order(3752,"Close", LocalDate.now().minusMonths(5),LocalDate.now().minusMonths(3),order2,c10);
+        Order o7 = new Order(3222,"Close", LocalDate.now().minusMonths(4),LocalDate.now().minusDays(1),order1,c10);
+
+        List <Order> allOrder = new ArrayList<>();
+        allOrder.add(o1);
+        allOrder.add(o2);
+        allOrder.add(o3);
+        allOrder.add(o4);
+        allOrder.add(o5);
+        allOrder.add(o6);
+        allOrder.add(o7);
 
         List<Customer> allCustomers = new ArrayList<>();
         allCustomers.add(c1);
@@ -53,10 +96,14 @@ public class Main {
         allProduct.add(p10);
 
 
+
         List<Product> booksOver100 =allProduct.stream().filter(product -> product.getCategory().equals("Books") && product.getPrice() > 100).toList();
-        System.out.print(booksOver100);
 
+        List<Order> allBabyOrder = allOrder.stream()
+                .filter(order -> order.getProducts().stream().anyMatch(product -> product.getCategory().equals("Baby")))
+                .toList();
 
+        System.out.println(allBabyOrder);
     }
 
 
