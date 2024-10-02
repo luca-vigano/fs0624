@@ -111,11 +111,17 @@ public class Main {
                 .filter(order -> order.getProducts().stream().anyMatch(product -> product.getCategory().equals("Baby")))
                 .toList();
 
+        LocalDate startDate = LocalDate.of(2024, 8, 1);
+        LocalDate endDate = LocalDate.of(2024, 8, 31);
+
         List<Product> orderTier2 = allOrder.stream()
-                .filter(order -> order.getCustomer().getTier() ==2)
+                .filter(order -> order.getCustomer().getTier() == 2)
+                .filter(order -> !order.getOrderDate().isBefore(startDate) && !order.getOrderDate().isAfter(endDate))
+                .flatMap(order -> order.getProducts().stream())
+                .toList();
 
 
-        System.out.println(discount2);
+        System.out.println(orderTier2);
     }
 
 
