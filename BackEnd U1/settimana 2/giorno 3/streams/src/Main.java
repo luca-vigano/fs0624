@@ -55,12 +55,12 @@ public class Main {
 
 
         Order o1 = new Order(167323,"Close", LocalDate.now().minusMonths(1),LocalDate.now().minusDays(13),order1,c10);
-        Order o2 = new Order(53764,"Close", LocalDate.now().minusMonths(2),LocalDate.now().minusDays(8),order2,c10);
-        Order o3 = new Order(67673,"Close", LocalDate.now().minusMonths(2),LocalDate.now().minusDays(20),order3,c10);
-        Order o4 = new Order(12632,"Close", LocalDate.now().minusMonths(3),LocalDate.now().minusMonths(1),order4,c10);
-        Order o5 = new Order(38672,"Close", LocalDate.now().minusMonths(4),LocalDate.now().minusMonths(2),order3,c10);
-        Order o6 = new Order(3752,"Close", LocalDate.now().minusMonths(5),LocalDate.now().minusMonths(3),order2,c10);
-        Order o7 = new Order(3222,"Close", LocalDate.now().minusMonths(4),LocalDate.now().minusDays(1),order1,c10);
+        Order o2 = new Order(53764,"Close", LocalDate.now().minusMonths(2),LocalDate.now().minusDays(8),order2,c1);
+        Order o3 = new Order(67673,"Close", LocalDate.now().minusMonths(2),LocalDate.now().minusDays(20),order3,c9);
+        Order o4 = new Order(12632,"Close", LocalDate.now().minusMonths(3),LocalDate.now().minusMonths(1),order4,c5);
+        Order o5 = new Order(38672,"Close", LocalDate.now().minusMonths(4),LocalDate.now().minusMonths(2),order3,c7);
+        Order o6 = new Order(3752,"Close", LocalDate.now().minusMonths(5),LocalDate.now().minusMonths(3),order2,c8);
+        Order o7 = new Order(3222,"Close", LocalDate.now().minusMonths(2),LocalDate.now().minusDays(1),order1,c2);
 
         List <Order> allOrder = new ArrayList<>();
         allOrder.add(o1);
@@ -110,6 +110,10 @@ public class Main {
         List<Order> allBabyOrder = allOrder.stream()
                 .filter(order -> order.getProducts().stream().anyMatch(product -> product.getCategory().equals("Baby")))
                 .toList();
+
+        List<Product> orderTier2 = allOrder.stream()
+                .filter(order -> order.getCustomer().getTier() ==2)
+
 
         System.out.println(discount2);
     }
