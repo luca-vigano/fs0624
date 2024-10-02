@@ -120,7 +120,6 @@ public class Main {
                 .flatMap(order -> order.getProducts().stream())// metodo di conversione che non ho capito trovato su internet
                 .toList();
 
-
         System.out.println(orderTier2);
     }
 
