@@ -95,10 +95,17 @@ public class Main {
         allProduct.add(p9);
         allProduct.add(p10);
 
-
+        // ----------------------------------- ES1--------------------------------------------
 
         List<Product> booksOver100 =allProduct.stream().filter(product -> product.getCategory().equals("Books") && product.getPrice() > 100).toList();
 
+        // ----------------------------------- ES2--------------------------------------------
+
+        List<Order> allBabyOrder = allOrder.stream()
+                .filter(order -> order.getProducts().stream().anyMatch(product -> product.getCategory().equals("Baby")))
+                .toList();
+
+        // ----------------------------------- ES3--------------------------------------------
 
         List<Product> discount2 = allProduct.stream()
                 .filter(product -> product.getCategory().equals("Boys"))
@@ -106,10 +113,7 @@ public class Main {
                 .toList();
 
 
-
-        List<Order> allBabyOrder = allOrder.stream()
-                .filter(order -> order.getProducts().stream().anyMatch(product -> product.getCategory().equals("Baby")))
-                .toList();
+        // ----------------------------------- ES4--------------------------------------------
 
         LocalDate startDate = LocalDate.of(2024, 8, 1);
         LocalDate endDate = LocalDate.of(2024, 8, 31);
