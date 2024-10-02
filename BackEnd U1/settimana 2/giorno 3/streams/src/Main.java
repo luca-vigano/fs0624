@@ -99,11 +99,19 @@ public class Main {
 
         List<Product> booksOver100 =allProduct.stream().filter(product -> product.getCategory().equals("Books") && product.getPrice() > 100).toList();
 
+
+        List<Product> discount2 = allProduct.stream()
+                .filter(product -> product.getCategory().equals("Boys"))
+                .map(product -> new Product(product.getId(), product.getName(), product.getCategory(), product.getPrice() * 0.9))
+                .toList();
+
+
+
         List<Order> allBabyOrder = allOrder.stream()
                 .filter(order -> order.getProducts().stream().anyMatch(product -> product.getCategory().equals("Baby")))
                 .toList();
 
-        System.out.println(allBabyOrder);
+        System.out.println(discount2);
     }
 
 
