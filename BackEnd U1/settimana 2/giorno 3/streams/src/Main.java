@@ -117,7 +117,7 @@ public class Main {
         List<Product> orderTier2 = allOrder.stream()
                 .filter(order -> order.getCustomer().getTier() == 2)
                 .filter(order -> !order.getOrderDate().isBefore(startDate) && !order.getOrderDate().isAfter(endDate))
-                .flatMap(order -> order.getProducts().stream())
+                .flatMap(order -> order.getProducts().stream())// metodo di conversione che non ho capito trovato su internet
                 .toList();
 
 
