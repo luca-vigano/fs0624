@@ -27,7 +27,7 @@ public class EventsDAO {
         // FARE COMMIT E INVIARE AL DB
         transaction.commit();
 
-        System.out.println("L'evento " + newEventi.getTitolo() + "è stato salvato correttamente");
+        System.out.println("L'evento " + newEventi.getTitolo() + " è stato salvato correttamente");
     }
 
     public Eventi getById(long eventId) {
@@ -52,7 +52,7 @@ public class EventsDAO {
         // FARE COMMIT E INVIARE AL DB
         transaction.commit();
 
-        System.out.println("L'evento " + eventoDaCancellare.getTitolo() + "è stato eliminato correttamente");
+        System.out.println("L'evento " + eventoDaCancellare.getTitolo() + " è stato eliminato correttamente");
     }
 
 

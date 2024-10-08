@@ -20,20 +20,20 @@ public class Application {
 
         EventsDAO event = new EventsDAO(em);
 
-        Eventi e = new Eventi("EICMA 2024", new Date(), "fiera automobilistica", EventType.PUBBLICO,10000);
-
-        event.saveEvent(e);
-
-
-//        try {
-//            Eventi fromDb = event.getById(2);
-//            System.out.println(fromDb);
+//        Eventi e = new Eventi("GamesWeek 2024", new Date(), "fiera videoludica", EventType.PUBBLICO,10000);
 //
-//            event.deleteEvent(1);
-//
-//        } catch (NotFoundException exception) {
-//            System.out.println(exception.getMessage());
-//        }
+//        event.saveEvent(e);
+
+
+        try {
+            Eventi eventoCercato = event.getById(1);
+            System.out.println(eventoCercato);
+
+           event.deleteEvent(1);
+
+        } catch (NotFoundException exception) {
+            System.out.println(exception.getMessage());
+        }
 
         em.close();
         emf.close();

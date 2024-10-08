@@ -28,6 +28,8 @@ public class Eventi {
      @Column(name = "numero max partecipanti")
     private int numeroMassimoPartecipanti;
 
+     public Eventi(){}
+
     public Eventi(String titolo, Date dataEvento, String descrizione, EventType tipoEvento, int numeroMassimoPartecipanti) {
         this.titolo = titolo;
         this.dataEvento = dataEvento;
@@ -78,5 +80,17 @@ public class Eventi {
 
     public void setNumeroMassimoPartecipanti(int numeroMassimoPartecipanti) {
         this.numeroMassimoPartecipanti = numeroMassimoPartecipanti;
+    }
+
+    @Override
+    public String toString() {
+        return "Eventi{" +
+                "id=" + id +
+                ", titolo='" + titolo + '\'' +
+                ", dataEvento=" + dataEvento +
+                ", descrizione='" + descrizione + '\'' +
+                ", tipoEvento=" + tipoEvento +
+                ", numeroMassimoPartecipanti=" + numeroMassimoPartecipanti +
+                '}';
     }
 }
