@@ -3,6 +3,7 @@ package lucavig.dao;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import lucavig.entities.Eventi;
+import lucavig.exceptions.NotFoundException;
 
 public class EventsDAO {
 
@@ -27,6 +28,15 @@ public class EventsDAO {
         transaction.commit();
 
         System.out.println("L'evento " + newEventi.getTitolo() + "è stato salvato correttamente");
-
     }
+
+    public Eventi getById(long eventId) {
+        Eventi eventoTrovato = entityManager.find(Eventi.class, eventId);
+        if (eventoTrovato == null) throw new NotFoundException(eventId);
+        return eventoTrovato;
+    }
+
+
+
+
 }
