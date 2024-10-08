@@ -36,7 +36,24 @@ public class EventsDAO {
         return eventoTrovato;
     }
 
+    public void deleteEvent(long eventId){
 
+        Eventi eventoDaCancellare = this.getById(eventId);
+
+        // CHIEDERE A entityManager DI CREARE UNA NUOVA TRANSACTION:
+        EntityTransaction transaction = entityManager.getTransaction();
+
+        // AVVIARE LA TRANSACTION:
+        transaction.begin();
+
+        // ISTRUZIONI PER AGGIUNGERE UN NUOVO EVENTO:
+        entityManager.remove(eventoDaCancellare);
+
+        // FARE COMMIT E INVIARE AL DB
+        transaction.commit();
+
+        System.out.println("L'evento " + eventoDaCancellare.getTitolo() + "è stato eliminato correttamente");
+    }
 
 
 }
