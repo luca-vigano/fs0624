@@ -15,8 +15,9 @@ public class Partecipazione {
     @JoinColumn (name = "Persona", nullable = false)
     private Persona persona;
 
-    @Column(name = "Evento", nullable = false)
-    private String evento;
+    @ManyToOne
+    @JoinColumn(name = "Evento", nullable = false)
+    private Eventi evento;
 
     @Column(name = "Stato presenza", nullable = false)
     private Presenza presenza;

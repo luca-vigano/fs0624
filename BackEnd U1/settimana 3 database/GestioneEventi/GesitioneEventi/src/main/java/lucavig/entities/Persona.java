@@ -29,14 +29,22 @@ public class Persona {
     private Date date;
 
     @Column(name = "Sesso", nullable = false)
+    @Enumerated(EnumType.STRING)
     private Genre genre;
 
     @OneToMany(mappedBy = "persona" )
-    @JoinColumn(name = "Lista partecipazioni")
     private List<Partecipazione> partecipazioniList;
 
 
     public Persona() {
+    }
+
+    public Persona(String nome, String cognome, String email, Genre genre) {
+        this.nome = nome;
+        this.cognome = cognome;
+        this.email = email;
+        this.date = new Date();
+        this.genre = genre;
     }
 
     public long getId() {

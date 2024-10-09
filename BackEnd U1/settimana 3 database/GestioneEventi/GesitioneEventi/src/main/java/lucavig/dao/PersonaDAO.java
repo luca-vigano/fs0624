@@ -27,7 +27,7 @@ public class PersonaDAO {
         // FARE COMMIT E INVIARE AL DB
         transaction.commit();
 
-        System.out.println("L'evento " + newPersona.getNome() + " è stato salvato correttamente");
+        System.out.println("La persona " + newPersona.getNome() + " è stata salvata correttamente");
     }
 
     public Persona getById(long personaId) {
@@ -52,6 +52,6 @@ public class PersonaDAO {
         // FARE COMMIT E INVIARE AL DB
         transaction.commit();
 
-        System.out.println("L'evento " + personaDaCancellare.getNome() + " è stato eliminato correttamente");
+        System.out.println("La persona " + personaDaCancellare.getNome() + " è stata eliminata correttamente");
     }
 }

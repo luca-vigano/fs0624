@@ -5,12 +5,12 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import lucavig.dao.EventsDAO;
 import lucavig.dao.PartecipazioneDAO;
-import lucavig.entities.EventType;
-import lucavig.entities.Eventi;
-import lucavig.entities.Partecipazione;
+import lucavig.dao.PersonaDAO;
+import lucavig.entities.*;
 import lucavig.exceptions.NotFoundException;
 
 import java.util.Date;
+
 
 public class Application {
 
@@ -20,7 +20,13 @@ public class Application {
 
         EntityManager em = emf.createEntityManager();
 
+        PersonaDAO pd = new PersonaDAO(em);
 
+        Persona p = new Persona("Aldo","Baglio", "aldo@baglio", Genre.M );
+
+        pd.savePersona(p);
+
+//        Persona aldoFromDb = pd.getById(1);
 
 //        EventsDAO event = new EventsDAO(em);
 //
