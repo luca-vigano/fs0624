@@ -11,8 +11,9 @@ public class Partecipazione {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "Persona", nullable = false)
-    private String persona;
+    @ManyToOne
+    @JoinColumn (name = "Persona", nullable = false)
+    private Persona persona;
 
     @Column(name = "Evento", nullable = false)
     private String evento;
@@ -24,15 +25,21 @@ public class Partecipazione {
     public Partecipazione() {
     }
 
+    public Partecipazione(Persona persona, String evento, Presenza presenza) {
+        this.persona = persona;
+        this.evento = evento;
+        this.presenza = presenza;
+    }
+
     public long getId() {
         return id;
     }
 
-    public String getPersona() {
+    public Persona getPersona() {
         return persona;
     }
 
-    public void setPersona(String persona) {
+    public void setPersona(Persona persona) {
         this.persona = persona;
     }
 

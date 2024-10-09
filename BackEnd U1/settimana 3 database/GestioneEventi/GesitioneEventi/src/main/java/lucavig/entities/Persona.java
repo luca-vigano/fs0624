@@ -11,6 +11,7 @@ import java.util.List;
 
 public class Persona {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -30,7 +31,8 @@ public class Persona {
     @Column(name = "Sesso", nullable = false)
     private Genre genre;
 
-    @Column(name = "Lista partecipazioni")
+    @OneToMany(mappedBy = "persona" )
+    @JoinColumn(name = "Lista partecipazioni")
     private List<Partecipazione> partecipazioniList;
 
 
