@@ -26,7 +26,7 @@ public class Partecipazione {
     public Partecipazione() {
     }
 
-    public Partecipazione(Persona persona, String evento, Presenza presenza) {
+    public Partecipazione(Persona persona, Eventi evento, Presenza presenza) {
         this.persona = persona;
         this.evento = evento;
         this.presenza = presenza;
@@ -44,11 +44,11 @@ public class Partecipazione {
         this.persona = persona;
     }
 
-    public String getEvento() {
+    public Eventi getEvento() {
         return evento;
     }
 
-    public void setEvento(String evento) {
+    public void setEvento(Eventi evento) {
         this.evento = evento;
     }
 
