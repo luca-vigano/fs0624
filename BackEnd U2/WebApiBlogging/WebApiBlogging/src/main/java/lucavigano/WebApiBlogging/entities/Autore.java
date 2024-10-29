@@ -23,6 +23,6 @@ public class Autore {
         this.cognome = cognome;
         this.email = email;
         this.datadinascita = datadinascita;
-        this.avatar = "https://www.google.com/url?q=https://ui-avatars.com/api/?name=" + nome + "+" + cognome;
+        this.avatar = "https://ui-avatars.com/api/?name=" + nome + "+" + cognome;
     }
 }
