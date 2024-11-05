@@ -31,7 +31,7 @@ public class DipendenteService {
                     throw new BadRequestException("Email " + body.email() + " già in uso");
                 }
         );
-        Dipendente newDipendente = new Dipendente(body.username(), body.nome(), body.cognome(), body.email());
+        Dipendente newDipendente = new Dipendente(body.username(), body.nome(), body.cognome(), body.email(),body.password());
         newDipendente.setAvatar("https://ui-avatars.com/api/?name=" + body.nome() + "+" + body.cognome());
         return this.dipendenteRepository.save(newDipendente);
     }

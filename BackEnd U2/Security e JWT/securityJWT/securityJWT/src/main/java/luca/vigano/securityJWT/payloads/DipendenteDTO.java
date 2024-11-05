@@ -16,5 +16,7 @@ public record DipendenteDTO(
         String cognome,
         @NotEmpty(message = "L'email è un campo obbligatorio!")
         @Email(message = "L'email inserita non è un'email valida")
-        String email) {
+        String email,
+        @NotEmpty(message = "password obbligatoria")
+        String password) {
 }

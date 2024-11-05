@@ -7,6 +7,8 @@ import luca.vigano.securityJWT.services.DipendenteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -22,32 +24,23 @@ public class DipendentiController {
     @Autowired
     private DipendenteService dipendenteService;
 
+    //+++++++++++++++++++++ ADMIN++++++++++++++++++++++++++++++++++++++
+
     @GetMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
     public Page<Dipendente> findAll(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "10") int size,
                                     @RequestParam(defaultValue = "id") String sortBy) {
         return this.dipendenteService.findAll(page, size, sortBy);
     }
 
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public Dipendente save(@RequestBody @Validated DipendenteDTO body, BindingResult validationResult) {
-        // @Validated serve per "attivare" le regole di validazione descritte nel DTO
-        // BindingResult contiene l'esito della validazione, quindi sarà utile per capire se ci sono stati errori e quali essi siano
-        if (validationResult.hasErrors()) {
-            String message = validationResult.getAllErrors().stream().map(objectError -> objectError.getDefaultMessage())
-                    .collect(Collectors.joining(". "));
-            throw new BadRequestException("Ci sono stati errori nel payload! " + message);
-        }
-
-        return this.dipendenteService.save(body);
-    }
-
     @GetMapping("/{dipendenteId}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public Dipendente findById(@PathVariable UUID dipendenteId) {
         return this.dipendenteService.findById(dipendenteId);
     }
 
     @PutMapping("/{dipendenteId}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public Dipendente findByIdAndUpdate(@PathVariable UUID dipendenteId, @RequestBody @Validated DipendenteDTO body, BindingResult validationResult) {
         if (validationResult.hasErrors()) {
             validationResult.getAllErrors().forEach(System.out::println);
@@ -57,9 +50,29 @@ public class DipendentiController {
     }
 
     @DeleteMapping("/{dipendenteId}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void findByIdAndDelete(@PathVariable UUID dipendenteId) {
         this.dipendenteService.findByIdAndDelete(dipendenteId);
+    }
+
+
+    //+++++++++++++++++++++++++++++++ /ME ++++++++++++++++++++++++++++++++++++++++++
+
+    @GetMapping("/me")
+    public Dipendente getProfile(@AuthenticationPrincipal Dipendente currentAuthenticatedUser) {
+        return currentAuthenticatedUser;
+    }
+
+    @PutMapping("/me")
+    public Dipendente updateProfile(@AuthenticationPrincipal Dipendente currentAuthenticatedUser, @RequestBody @Validated DipendenteDTO body) {
+        return this.dipendenteService.findByIdAndUpdate(currentAuthenticatedUser.getId(), body);
+    }
+
+    @DeleteMapping("/me")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteProfile(@AuthenticationPrincipal Dipendente currentAuthenticatedUser) {
+        this.dipendenteService.findByIdAndDelete(currentAuthenticatedUser.getId());
     }
 
 //    @PatchMapping("/{dipendenteId}/avatar")
