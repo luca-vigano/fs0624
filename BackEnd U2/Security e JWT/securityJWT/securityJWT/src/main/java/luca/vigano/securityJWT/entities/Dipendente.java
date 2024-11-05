@@ -1,10 +1,7 @@
 package luca.vigano.securityJWT.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 import luca.vigano.securityJWT.enums.Role;
 import org.springframework.security.core.GrantedAuthority;
@@ -24,6 +21,7 @@ import java.util.UUID;
 @JsonIgnoreProperties({"password", "role", "accountNonLocked", "credentialsNonExpired", "accountNonExpired", "authorities", "enabled"})
 
 public class Dipendente implements UserDetails{
+    @Id
     @GeneratedValue
     @Setter(AccessLevel.NONE)
     private UUID id;
@@ -34,6 +32,7 @@ public class Dipendente implements UserDetails{
     private String email;
     private String password;
     private String avatar;
+    @Enumerated(EnumType.STRING)
     private Role role;
 
     public Dipendente(String username, String nome, String cognome, String email, String password) {
