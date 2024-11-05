@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -23,6 +24,8 @@ public class DipendenteService {
 
     @Autowired
     private DipenteRepository dipendenteRepository;
+    @Autowired
+    private PasswordEncoder bcryptencoder;
 //    @Autowired
 //    private Cloudinary cloudinaryUploader;
 
@@ -31,7 +34,7 @@ public class DipendenteService {
                     throw new BadRequestException("Email " + body.email() + " già in uso");
                 }
         );
-        Dipendente newDipendente = new Dipendente(body.username(), body.nome(), body.cognome(), body.email(),body.password());
+        Dipendente newDipendente = new Dipendente(body.username(), body.nome(), body.cognome(), body.email(),bcryptencoder.encode(body.password()));
         newDipendente.setAvatar("https://ui-avatars.com/api/?name=" + body.nome() + "+" + body.cognome());
         return this.dipendenteRepository.save(newDipendente);
     }

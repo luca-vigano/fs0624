@@ -5,7 +5,6 @@ import luca.vigano.securityJWT.exception.UnauthorizedException;
 import luca.vigano.securityJWT.payloads.DipendenteLoginDTO;
 import luca.vigano.securityJWT.tools.JWT;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.parameters.P;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
